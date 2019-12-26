@@ -1,35 +1,41 @@
-这部分记录0-->10关中的收获与密码
+这部分记录所有关中的收获与密码
 
 //level 0
 
 
 
-bandit5   koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+//bandit5   koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 find -h -size  1033
 
-bandit6   DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+//bandit6   DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 find / -user ‘bandit7’ -group ‘bandit6’ -size 33c | grep -v denied
 从根目录查找
 查找符合权限符合大小的文件
 没有权限则会拒绝进入
 只有一个文件不会拒绝，就是密码文件
 
-bandit7   HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+//bandit7   HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
 cat data.txt | grep millionth
 文件查看与查找
 grep是一个很强大的工具，用来过滤筛选信息
 | 管道 (pipeline)，是 UNIX 系统，基础且重要的观念。连结上个指令的标准输出，做为下个指令的标准输入。
 
-bandit8   cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+//bandit8   cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 cat data.txt | sort | uniq -u
 这里需要找一行只出现了一次的字符
 需要先对文件进行划分，然后筛掉重复的信息
 sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。
 sort的-u选项，它的作用很简单，就是在输出行中去除重复行。
 sort的-r选项，sort默认的排序方式是升序，如果想改成降序，就加个-r就搞定了。
-sort的-o选项，由于sort默认是把结果输出到标准输出，所以需要用重定向才能将结果写入文件，形如sort filename > newfile。但是，如果你想把排序结果输出到原文件中，用重定向可就不行了。
-sort的-n选项，你有没有遇到过10比2小的情况。我反正遇到过。出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面喽。这也是sort的一贯作风。我们如果想改变这种现状，就要使用-n选项，来告诉sort，“要以数值来排序”！
-sort的-t选项和-k选项，这个文件有三列，列与列之间用冒号隔开了，我想以第二列来排序，如何利用sort实现？sort提供了-t选项，后面可以设定间隔符，指定了间隔符之后，就可以用-k来指定列数了。sort -n -k 2 -t : facebook.txt
+sort的-o选项，由于sort默认是把结果输出到标准输出，所以需要用重定向才能将结果写入文件，形如sort filename > newfile。
+              但是，如果你想把排序结果输出到原文件中，用重定向可就不行了。
+sort的-n选项，你有没有遇到过10比2小的情况。我反正遇到过。出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，
+              显然1小，所以就将10放在2前面喽。这也是sort的一贯作风。我们如果想改变这种现状，就要使用-n选项，来告诉sort，“要以数值来排序”！
+sort的-t选项和-k选项，这个文件有三列，列与列之间用冒号隔开了，我想以第二列来排序，如何利用sort实现？sort提供了-t选项，
+              后面可以设定间隔符，指定了间隔符之后，就可以用-k来指定列数了。sort -n -k 2 -t : facebook.txt
 其他的sort常用选项
 -f会将小写字母都转换为大写字母来进行比较，亦即忽略大小写
 -c会检查文件是否已排好序，如果乱序，则输出第一个乱序的行的相关信息，最后返回1
@@ -46,21 +52,22 @@ uniq 可检查文本文件中重复出现的行列。
 -w<字符位置>或--check-chars=<字符位置> 指定要比较的字符。
 
 
-bandit9   UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+//bandit9   UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 cat data.txt | strings | grep =
-strings命令在对象文件或二进制文件中查找可打印的字符串。字符串是4个或更多可打印字符的任意序列，以换行符或空字符结束。 strings命令对识别随机对象文件很有用
+strings命令在对象文件或二进制文件中查找可打印的字符串。字符串是4个或更多可打印字符的任意序列，以换行符或空字符结束。 
+strings命令对识别随机对象文件很有用
 
 
-bandit10  truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+//bandit10  truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
 cat data.txt | base64 -d
 使用base64进行解码
 
 
-bandit11  IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+//bandit11  IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 cat data.txt | tr [a-z] [n-za-m] | tr [A-Z][N-ZA-M]
 用tr命令替换字符，把所有字符推后13位
 
-bandit12  5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+//bandit12  5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 无权在原始目录操作，必须先创建新目录，把文件拷贝进去
 用cp data /tmp/。。。
 然后用xxd将其输出为压缩文件，即xxd -r data.txt data
@@ -75,29 +82,29 @@ tar -xvf data.tar
 
 
 
-bandit13  8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+//bandit13  8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 
 
 
-bandit14  
+//bandit14  
 
 
 
-bandit15  
+//bandit15  
 
 
 
 
-bandit16  
+//bandit16  
 
-bandit17  
-
-
-
-bandit18  
+//bandit17  
 
 
-bandit19  
+
+//bandit18  
+
+
+//bandit19  
 
 
 
