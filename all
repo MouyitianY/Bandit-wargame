@@ -83,19 +83,48 @@ tar -xvf data.tar
 
 
 //bandit13  8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+这一关需要用到ssh，在bandit13下通过ssh登录bandit14，然后在bandit14中读取14的密码
+先用提供的sshkey.private私钥文件进行bandit14的登录
+ssh -i sshkey.private bandit14@localhost
+ssh命令，[-i identity_file]
+加上-i参数后可以添加身份文件，比如私钥文件
 
 
 
-//bandit14  
+//bandit14  4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+这一关用telnet命令，连接到30000端口
+telnet localhost 30000
+然后连接上以后把bandit14的密码发过去就可以得到返回的新密码
+也可以用nc命令
+nc localhost 30000
 
 
 
-//bandit15  
+//bandit15  BfMYroe26WYalil77FoDi9qh59eK5xNr
+这一关用到一个强大的工具：openssl
+openssl s_client -connect localhost:30001
+可以直接用上面的命令，我们作为客户端和ssl服务器进行交互，把密码发送过去就可以获得下一关的密码
+也可以加-ign_eof或者-quiet参数
+前者用来保持和服务器的连接，保证收到回复的密码之后服务不会断开，防止看不到密码就退出
+后者用来精简界面，屏蔽掉证书信息等
+亲测不需要这两个参数影响不大
+s_client为一个SSL/TLS客户端程序，与s_server对应，它不仅能与s_server进行通信，也能与任何使用ssl协议的其他服务程序进行通信。用法如下：
+openssl s_client [-host host] [-port port] [-connect host:port] [-verify depth] [-cert filename] [-certform DER|PEM] 
+                 [-key filename] [-keyform DER|PEM] [-pass arg] [-CApath directory] [-CAfile filename] [-reconnect]
+                 [-pause] [-showcerts] [-debug] [-msg] [-state] [-nbio_test] [-nbio][-crlf] [-ign_eof] [-no_ign_eof] 
+                 [-quiet] [-ssl2] [-ssl3] [-tls1_1] [-tls1_2] [-tls1] [-dtls1] [-no_ssl2][-no_ssl3] [-no_tls1] [-no_tls1_1] 
+                 [-no_tls1_2] [-bugs] [-cipher cipherlist] [-starttls protocol] [-engine id] [-tlsextdebug] [-no_ticket] 
+                 [-sess_out filename] [-sess_in filename] [-rand file(s)]   
 
 
 
 
-//bandit16  
+//bandit16  cluFn7wTiGryunymYOu4RcffSxQluehd
+
+
+
+
+
 
 //bandit17  
 
