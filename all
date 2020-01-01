@@ -120,6 +120,32 @@ openssl s_client [-host host] [-port port] [-connect host:port] [-verify depth] 
 
 
 //bandit16  cluFn7wTiGryunymYOu4RcffSxQluehd
+这一关首先要用端口扫描工具对31000-32000进行扫描，查看哪些处于监听状态
+nmap -p 31000-32000 localhost
+然后会得到以下内容：
+Not shown: 999 closed ports
+PORT      STATE    SERVICE
+31518/tcp filtered unknown
+31790/tcp open     unknown
+可以看到只有31790处于开放状态
+接下来用上一关的工具进行ssl连接：echo cluFn7wTiGryunymYOu4RcffSxQluehd|openssl s_client -connect localhost:31790
+得到一串回复：
+-----BEGIN CERTIFICATE-----
+MIICBjCCAW+gAwIBAgIEbSNYOzANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+b2NhbGhvc3QwHhcNMTkxMTI2MDMzNzA3WhcNMjAxMTI1MDMzNzA3WjAUMRIwEAYD
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMK/1fWi
+3jCBydYlpk1fH5e96vpfdBFXtNXo8foquNUmvdFleKOUIFova64TG6KP6FVzEsV9
+xvda7w7HWLYV9n6mX+QUTOFCRAGGrfLMyVtbzbn4B/QHaN6VUpF6nSeKys/H9LW8
+jUrW2NaIrMXyOkmcrRHTNt96sGyIwYEOJfJfAgMBAAGjZTBjMBQGA1UdEQQNMAuC
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+DQEBBQUAA4GBAFe9QZAhX0RNQIJ92lHIyuh85LlUGfKQPr4psE3tXdrcX9bV0Ici
+PRSaFzX8hlBHcwtNmgJjmv5JmyFi7vyIx6JOKf4Eu+Hnxd0SQ2S8090PIM6cg8eS
+2viDh3dTUeY7vIGqK/p/TXi3n4YVnpd6uzkCyGUmK+37FRjQOYbZvnt/
+-----END CERTIFICATE-----
+将这串密钥存成一个key.private文件（参考
+
+
 
 
 
