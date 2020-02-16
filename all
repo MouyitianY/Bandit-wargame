@@ -143,7 +143,7 @@ DQEBBQUAA4GBAFe9QZAhX0RNQIJ92lHIyuh85LlUGfKQPr4psE3tXdrcX9bV0Ici
 PRSaFzX8hlBHcwtNmgJjmv5JmyFi7vyIx6JOKf4Eu+Hnxd0SQ2S8090PIM6cg8eS
 2viDh3dTUeY7vIGqK/p/TXi3n4YVnpd6uzkCyGUmK+37FRjQOYbZvnt/
 -----END CERTIFICATE-----
-将这串密钥存成一个key.private文件（参考
+将这串密钥存成一个key.private文件（参考13）
 
 
 
@@ -152,11 +152,17 @@ PRSaFzX8hlBHcwtNmgJjmv5JmyFi7vyIx6JOKf4Eu+Hnxd0SQ2S8090PIM6cg8eS
 
 
 
-//bandit17  
+//bandit17  xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+diff passwords.new passwords.old 
+42c42
+< kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+---
+> hlbSBPAWJmL6WFDb06gpTx1pPButblOA
 
 
 
-//bandit18  
+
+//bandit18  kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 
 
 //bandit19  
